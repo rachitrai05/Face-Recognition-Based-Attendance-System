@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Attendance System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col items-center justify-center h-screen bg-gradient-to-r text-white" style="background-image:url('static/attendance_bg.jpg');" >
+    <h1 class="text-3xl font-bold mb-4">Face Attendance System</h1>
+    <div class="relative border-4 border-gray-200 rounded-lg overflow-hidden shadow-lg" style="position: relative; display:inline-block;">
+    <video id="video" autoplay class="rounded-lg shadow-lg"></video>
+    <canvas id="canvas" style="display: none; position: absolute; top: 0; left: 0;"></canvas>
+    </div>
+    <input type="text" id="nameInput" placeholder="Enter your name" class="mt-4 p-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 text-black">
+    <h2 id="recognizedName" class="mt-2 font-bold">Waiting for recognition...</h2>
+    <div class="mt-4 flex space-x-4">
+        <button onclick="registerFace()" class="btn">Register Face</button>
+        <button onclick="recognizeFace()" class="btn">Mark Attendance</button>
+        <button onclick="exportAttendance()" class="btn">Export CSV</button>
+        <button onclick="openAttendancePage()" class="btn">View Attendance</button>
+    </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+    <script defer src="/static/js/face_detection.js"></script>
+     
+    <style>
+        
+        .btn {
+            background-color: #b625eb;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background-color: #1dd8c2;
+        }
+    </style>
+</body>
+</html>
